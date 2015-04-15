@@ -1,20 +1,17 @@
 package com.ksy.media.demo;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import java.util.List;
 
-public class MediaDetaiFragment extends Fragment {
+import com.ksy.media.demo.ui.IndicatorFragment;
+
+public class MediaDetaiFragment extends IndicatorFragment {
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+	protected int supplyTabs(List<TabInfo> tabs) {
 
-		TextView view = new TextView(getActivity());
-		view.setText("detail fragment");
-		return view;
+		tabs.add(new TabInfo(0, "评论", true, DescriptionFragment.class));
+		tabs.add(new TabInfo(1, "详情", true, DescriptionFragment.class));
+		tabs.add(new TabInfo(2, "点播", true, DescriptionFragment.class));
+		return 0;
 	}
 }
