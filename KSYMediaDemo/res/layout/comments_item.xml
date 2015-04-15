@@ -16,7 +16,6 @@
         android:layout_weight="2"
         android:gravity="center|top"
          >
-
         <com.ksy.media.demo.ui.CircularImage
             android:id="@+id/cover_user_photo"
             android:layout_width="40dp"
@@ -45,6 +44,36 @@
                 android:singleLine="true"
                 android:textColor="#0000FF"
                 android:textSize="15sp" />
+            
+              <ImageView 
+                 android:id="@+id/like_icon"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="22dp"
+                 android:contentDescription="@null"
+                 android:layout_centerVertical="true"
+                 android:layout_alignTop="@id/name"
+                 android:scaleType="fitCenter"
+                 android:src="@drawable/comment_like_normal"
+                 />
+            
+            
+             <TextView
+                android:id="@+id/like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/like_icon"
+                android:layout_centerVertical="true"
+                android:layout_alignTop="@id/name"
+                android:ellipsize="marquee"
+                android:singleLine="true"
+                android:textColor="#8A8A8A"
+                android:textSize="13sp"
+                android:paddingRight="5dp"
+                 />
+             
+           
 
             <TextView
                 android:id="@+id/from"
@@ -75,7 +104,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content" 
+            android:orientation="vertical"
+            >
 
             <TextView
                 android:id="@+id/content"
@@ -87,6 +118,32 @@
                 android:textSize="16sp"
                 android:layout_marginRight="5dp"
                  />
+            
+             <LinearLayout
+            	android:layout_width="match_parent"
+           	 	android:layout_height="wrap_content" 
+            	android:orientation="horizontal"
+            	android:layout_marginTop="5dp"
+            	android:layout_marginRight="5dp"
+            >
+                 
+                 <TextView
+                	android:id="@+id/location"
+                	android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:layout_marginTop="10dp"
+                	android:singleLine="true"
+                	android:ellipsize="marquee"
+                	android:textColor="#8A8A8A"
+                	android:textSize="14sp"
+                	android:drawableLeft="@drawable/comment_location"
+                	android:drawablePadding="5dp"
+                	android:paddingRight="5dp"
+                 />
+             </LinearLayout>
+            
+            
+            
         </LinearLayout>
     </LinearLayout>
 

@@ -13,7 +13,7 @@ public class CameraMainActivity extends FragmentActivity {
 
 	private FragmentManager mFragmentManager;
 	private final String[] urls = new String[] {
-			"rtmp://192.168.135.185/myLive/guoli1234",
+			// "rtmp://192.168.135.185/myLive/guoli1234",
 			// "rtmp://192.168.135.185/myLive/drm",
 			// "http://live.3gv.ifeng.com/zixun.m3u8",
 			// "http://115.231.96.85:9000/hls/test1",

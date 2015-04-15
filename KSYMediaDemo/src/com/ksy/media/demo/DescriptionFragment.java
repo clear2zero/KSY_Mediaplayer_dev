@@ -57,11 +57,21 @@ public class DescriptionFragment extends Fragment {
 			"我支持IG"
 	};
 
+	private static final String[] location = new String[] {
+			"内蒙古通辽花园三号楼303", "广东省深圳市福田区腾讯大厦", "北京西城区首创国际中心地下停车场", "北京朝阳区安详里1号楼3单元", "北京海淀区北京大学经济学院", "USA.Los Angeles.LongBeach ",
+			"云南大理裕华中心", "黑龙江哈尔滨保育院", "北京海淀区金山软件大厦"
+	};
+
 	private static final int[] headers = new int[] {
 			R.drawable.header_1, R.drawable.header_2, R.drawable.header_3,
 			R.drawable.header_4, R.drawable.header_5, R.drawable.header_6,
 			R.drawable.header_7, R.drawable.header_8, R.drawable.header_9,
 			R.drawable.header_10, R.drawable.header_11,
+	};
+
+	private static final String[] likes = new String[] {
+			"168", "2万", "300", "20", "1",
+			"30", "5000", "489", "60"
 	};
 
 	private static String random(String[] datas) {
@@ -92,7 +102,7 @@ public class DescriptionFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 		mComments = new ArrayList<DescriptionFragment.Comment>();
 		for (int i = 0; i < 20; i++) {
-			Comment comment = new DescriptionFragment.Comment(random(names), random(froms), random(dates), random(contents), random(headers));
+			Comment comment = new DescriptionFragment.Comment(random(names), random(froms), random(dates), random(contents), random(headers), random(location), random(likes));
 			mComments.add(comment);
 		}
 	}
@@ -154,6 +164,8 @@ public class DescriptionFragment extends Fragment {
 				holder.dateView = (TextView) convertView.findViewById(R.id.date);
 				holder.contentView = (TextView) convertView.findViewById(R.id.content);
 				holder.headerImage = (CircularImage) convertView.findViewById(R.id.cover_user_photo);
+				holder.locationView = (TextView) convertView.findViewById(R.id.location);
+				holder.likeView = (TextView) convertView.findViewById(R.id.like);
 				convertView.setTag(holder);
 			}
 			holder = (CommentViewHolder) convertView.getTag();
@@ -163,6 +175,8 @@ public class DescriptionFragment extends Fragment {
 			holder.dateView.setText(comment.date);
 			holder.contentView.setText(comment.content);
 			holder.headerImage.setImageResource(comment.imageResource);
+			holder.locationView.setText("发表于:" + comment.location);
+			holder.likeView.setText(comment.like);
 			return convertView;
 		}
 	}
@@ -174,6 +188,8 @@ public class DescriptionFragment extends Fragment {
 		TextView dateView;
 		TextView contentView;
 		CircularImage headerImage;
+		TextView locationView;
+		TextView likeView;
 	}
 
 	class Comment {
@@ -183,14 +199,18 @@ public class DescriptionFragment extends Fragment {
 		String date;
 		String content;
 		int imageResource;
+		String location;
+		String like;
 
-		public Comment(String name, String from, String date, String content, int imageResource) {
+		public Comment(String name, String from, String date, String content, int imageResource, String location, String like) {
 
 			this.name = name;
 			this.from = from;
 			this.date = date;
 			this.content = content;
 			this.imageResource = imageResource;
+			this.location = location;
+			this.like = like;
 		}
 
 	}
