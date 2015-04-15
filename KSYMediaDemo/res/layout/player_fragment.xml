@@ -9,7 +9,7 @@
         android:id="@+id/player_view"
         android:layout_width="fill_parent"
         android:layout_height="260dp"
-        android:paddingBottom="20dp"
+        android:paddingBottom="4dp"
         player:playmode="window" />
 
 </FrameLayout>
