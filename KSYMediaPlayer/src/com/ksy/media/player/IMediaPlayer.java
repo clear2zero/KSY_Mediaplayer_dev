@@ -89,14 +89,11 @@ public interface IMediaPlayer {
 
 	public abstract void setOnCompletionListener(OnCompletionListener listener);
 
-	public abstract void setOnBufferingUpdateListener(
-			OnBufferingUpdateListener listener);
+	public abstract void setOnBufferingUpdateListener(OnBufferingUpdateListener listener);
 
-	public abstract void setOnSeekCompleteListener(
-			OnSeekCompleteListener listener);
+	public abstract void setOnSeekCompleteListener(OnSeekCompleteListener listener);
 
-	public abstract void setOnVideoSizeChangedListener(
-			OnVideoSizeChangedListener listener);
+	public abstract void setOnVideoSizeChangedListener(OnVideoSizeChangedListener listener);
 
 	public abstract void setOnErrorListener(OnErrorListener listener);
 
@@ -129,8 +126,7 @@ public interface IMediaPlayer {
 
 	public static interface OnVideoSizeChangedListener {
 
-		public void onVideoSizeChanged(IMediaPlayer mp, int width, int height,
-				int sar_num, int sar_den);
+		public void onVideoSizeChanged(IMediaPlayer mp, int width, int height, int sar_num, int sar_den);
 	}
 
 	public static interface OnErrorListener {
@@ -145,14 +141,12 @@ public interface IMediaPlayer {
 
 	public static interface OnDRMRequiredListener {
 
-		public void OnDRMRequired(IMediaPlayer mp, int what, int extra,
-				String version);
+		public void OnDRMRequired(IMediaPlayer mp, int what, int extra, String version);
 	}
 
 	public static interface OnSurfaceListener {
 
-		public void surfaceChanged(SurfaceHolder holder, int format, int w,
-				int h);
+		public void surfaceChanged(SurfaceHolder holder, int format, int w, int h);
 
 		public void surfaceCreated(SurfaceHolder holder);
 

@@ -16,7 +16,10 @@ public class CameraMainActivity extends FragmentActivity {
 			// "http://live.3gv.ifeng.com/zixun.m3u8",
 			// "http://115.231.96.85:9000/hls/test1",
 			// new File(Environment.getExternalStorageDirectory(),
-			// "a.mp4").getPath()
+			// "a.mp4").getPath(),
+
+			// "rtmp://192.168.135.185:1935/myLive/tangluo"
+
 	};
 
 	@Override

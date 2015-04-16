@@ -94,6 +94,7 @@ public class DRMRetrieverManager {
 				Bundle data = new Bundle();
 				data.putString("response", "");
 				data.putSerializable("handler", handler);
+				msg.setData(data);
 				mhandler.sendMessage(msg);
 			}
 		}
