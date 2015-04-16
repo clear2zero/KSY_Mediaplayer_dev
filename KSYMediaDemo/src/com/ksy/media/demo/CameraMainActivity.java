@@ -1,8 +1,10 @@
 package com.ksy.media.demo;
 
+import java.io.File;
 import java.util.Random;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -12,11 +14,10 @@ public class CameraMainActivity extends FragmentActivity {
 	private FragmentManager mFragmentManager;
 	private final String[] urls = new String[] {
 			// "rtmp://192.168.135.185/myLive/guoli1234",
-			"rtmp://192.168.135.185/myLive/drm",
+			// "rtmp://192.168.135.185/myLive/drm",
 			// "http://live.3gv.ifeng.com/zixun.m3u8",
 			// "http://115.231.96.85:9000/hls/test1",
-			// new File(Environment.getExternalStorageDirectory(),
-			// "a.mp4").getPath(),
+			new File(Environment.getExternalStorageDirectory(), "a.mp4").getPath(),
 
 			// "rtmp://192.168.135.185:1935/myLive/tangluo"
 
