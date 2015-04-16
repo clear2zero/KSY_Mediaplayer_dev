@@ -767,6 +767,7 @@ public class MediaPlayerView extends RelativeLayout {
 		@Override
 		public void OnDRMRequired(IMediaPlayer mp, int what, int extra, String version) {
 
+			Toast.makeText(getContext(), "begin drm retriving..", Toast.LENGTH_SHORT).show();
 			requestDRMKey(version);
 		}
 	};
@@ -777,6 +778,8 @@ public class MediaPlayerView extends RelativeLayout {
 			mDrmManager = DRMRetrieverManager.getInstance();
 		if (mDrmHandler == null) {
 			mDrmHandler = new DRMRetrieverResponseHandler() {
+
+				private static final long serialVersionUID = 1L;
 
 				@Override
 				public void onSuccess(int paramInt, String cek) {
