@@ -101,7 +101,7 @@ public class DescriptionFragment extends Fragment {
 
 		super.onCreate(savedInstanceState);
 		mComments = new ArrayList<DescriptionFragment.Comment>();
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 200; i++) {
 			Comment comment = new DescriptionFragment.Comment(random(names), random(froms), random(dates), random(contents), random(headers), random(location), random(likes));
 			mComments.add(comment);
 		}

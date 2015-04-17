@@ -40,8 +40,10 @@ import com.ksy.media.data.NetReceiver.NetStateChangedListener;
 import com.ksy.media.data.WakeLocker;
 import com.ksy.media.player.IMediaPlayer;
 import com.ksy.media.player.util.Constants;
+import com.ksy.media.player.util.DRMKey;
 import com.ksy.media.player.util.DRMRetrieverManager;
 import com.ksy.media.player.util.DRMRetrieverResponseHandler;
+import com.ksy.media.player.util.IDRMRetriverRequest;
 import com.ksy.mediaPlayer.widget.R;
 
 public class MediaPlayerView extends RelativeLayout {
@@ -767,7 +769,7 @@ public class MediaPlayerView extends RelativeLayout {
 		@Override
 		public void OnDRMRequired(IMediaPlayer mp, int what, int extra, String version) {
 
-			Toast.makeText(getContext(), "begin drm retriving..", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getContext(), "begin drm retriving..version :" + version, Toast.LENGTH_SHORT).show();
 			requestDRMKey(version);
 		}
 	};
@@ -782,22 +784,49 @@ public class MediaPlayerView extends RelativeLayout {
 				private static final long serialVersionUID = 1L;
 
 				@Override
-				public void onSuccess(int paramInt, String cek) {
+				public void onSuccess(String version, String cek) {
 
 					mMediaPlayerVideoView.setDRMKey(version, cek);
-					Toast.makeText(getContext(), "DRM KEY retrieve success", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getContext(), "DRM KEY retrieve success,ver :" + version + ", key :" + cek, Toast.LENGTH_SHORT).show();
 				}
 
 				@Override
-				public void onFailure(int paramInt, String response, Throwable paramThrowable) {
+				public void onFailure(int arg0, String arg1, Throwable arg2) {
 
 					Log.e(Constants.LOG_TAG, "drm retrieve failed !!!!!!!!!!!!!!");
 					Toast.makeText(getContext(), "DRM KEY retrieve failed", Toast.LENGTH_SHORT).show();
 				}
+
 			};
 		}
-		String url = "https://115.231.96.89:80/test/GetCek?signature=16I/xKLT8S/aHJpApgYfye6CI6o=&accesskeyid=8oN7siZgTOSFHft0cXTg&expire=1710333224&nonce=4e1f2519c626cbfbab1520c255830c26&cekurl=rtmp://192.168.135.185/myLive/drm&cekver=" + version;
-		mDrmManager.retrieveDRM(url, mDrmHandler);
+		// String url =
+		// "https://115.231.96.89:80/test/GetCek?signature=16I/xKLT8S/aHJpApgYfye6CI6o=&accesskeyid=8oN7siZgTOSFHft0cXTg&expire=1710333224&nonce=4e1f2519c626cbfbab1520c255830c26&cekurl=rtmp://192.168.135.185/myLive/drm&cekver="
+		// + version;
+		IDRMRetriverRequest request = new IDRMRetriverRequest(version, url) {
+
+			@Override
+			public DRMKey retriveDRMKeyFromAppServer(DRMFullURL fullURL) {
+
+				return null;
+			}
+
+			@Override
+			public DRMFullURL retriveDRMFullUrl(String cekVersion, String cekUrl) throws Exception {
+
+				DRMFullURL fullURL = new DRMFullURL("115.231.96.89:80",
+						"test", DRMMethod.GetCek,
+						"16I/xKLT8S/aHJpApgYfye6CI6o=",
+						"8oN7siZgTOSFHft0cXTg", "1710333224",
+						"4e1f2519c626cbfbab1520c255830c26",
+						cekUrl,
+						cekVersion,
+						"UTF-8");
+
+				return fullURL;
+
+			}
+		};
+		mDrmManager.retrieveDRM(request, mDrmHandler);
 	}
 
 	IMediaPlayer.OnBufferingUpdateListener mOnPlaybackBufferingUpdateListener = new IMediaPlayer.OnBufferingUpdateListener() {
