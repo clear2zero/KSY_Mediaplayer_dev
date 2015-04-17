@@ -799,10 +799,10 @@ public class MediaPlayerView extends RelativeLayout {
 
 			};
 		}
-		// String url =
-		// "https://115.231.96.89:80/test/GetCek?signature=16I/xKLT8S/aHJpApgYfye6CI6o=&accesskeyid=8oN7siZgTOSFHft0cXTg&expire=1710333224&nonce=4e1f2519c626cbfbab1520c255830c26&cekurl=rtmp://192.168.135.185/myLive/drm&cekver="
-		// + version;
+
 		IDRMRetriverRequest request = new IDRMRetriverRequest(version, url) {
+
+			private static final long serialVersionUID = 1L;
 
 			@Override
 			public DRMKey retriveDRMKeyFromAppServer(DRMFullURL fullURL) {
@@ -813,14 +813,9 @@ public class MediaPlayerView extends RelativeLayout {
 			@Override
 			public DRMFullURL retriveDRMFullUrl(String cekVersion, String cekUrl) throws Exception {
 
-				DRMFullURL fullURL = new DRMFullURL("115.231.96.89:80",
-						"test", DRMMethod.GetCek,
-						"16I/xKLT8S/aHJpApgYfye6CI6o=",
-						"8oN7siZgTOSFHft0cXTg", "1710333224",
-						"4e1f2519c626cbfbab1520c255830c26",
-						cekUrl,
-						cekVersion,
-						"UTF-8");
+				DRMFullURL fullURL = new DRMFullURL("115.231.96.89:80", "test", DRMMethod.GetCek,
+						"16I/xKLT8S/aHJpApgYfye6CI6o=", "8oN7siZgTOSFHft0cXTg", "1710333224",
+						"4e1f2519c626cbfbab1520c255830c26", cekUrl, cekVersion, "UTF-8");
 
 				return fullURL;
 
