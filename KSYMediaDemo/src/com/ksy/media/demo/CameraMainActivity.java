@@ -12,7 +12,9 @@ public class CameraMainActivity extends FragmentActivity {
 	private FragmentManager mFragmentManager;
 	private final String[] urls = new String[] {
 			// "rtmp://192.168.135.185/myLive/guoli1234",
-			"rtmp://192.168.135.185/myLive/drm",
+			"rtmp://192.168.135.185/myLive/drm1",
+			// "rtsp://10.0.2.11:8086",
+			// "http://192.168.43.42:8080",
 			// "http://live.3gv.ifeng.com/zixun.m3u8",
 			// "http://115.231.96.85:9000/hls/test1",
 			// new File(Environment.getExternalStorageDirectory(),

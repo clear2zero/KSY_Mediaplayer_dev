@@ -148,15 +148,8 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 				return false;
 			if (this.mCekUrl == null || "".equals(this.mCekUrl))
 				return false;
-
-			try {
-				int version = Integer.valueOf(mCekVersion);
-				if (Integer.valueOf(version) < 0)
-					return false;
-			} catch (NumberFormatException e) {
+			if (this.mCekVersion == null || "".equals(this.mCekVersion))
 				return false;
-			}
-
 			if (this.mEcodingFormat == null || "".equals(this.mEcodingFormat))
 				return false;
 			return true;
