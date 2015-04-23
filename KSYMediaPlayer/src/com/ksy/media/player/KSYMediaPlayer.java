@@ -95,12 +95,10 @@ public final class KSYMediaPlayer extends BaseMediaPlayer {
 
 		synchronized (KSYMediaPlayer.class) {
 			if (!mIsLibLoaded) {
-				Log.d(TAG, "loadLibrariesOnce");
 				libLoader.loadLibrary("ksyffmpeg");
 				libLoader.loadLibrary("ksyutil");
 				libLoader.loadLibrary("ksysdl");
 				libLoader.loadLibrary("ksyplayer");
-				Log.d(TAG, "loadLibrariesOnce End");
 				mIsLibLoaded = true;
 			}
 		}
@@ -112,9 +110,7 @@ public final class KSYMediaPlayer extends BaseMediaPlayer {
 
 		synchronized (KSYMediaPlayer.class) {
 			if (!mIsNativeInitialized) {
-				Log.d(TAG, "native init begin");
 				native_init();
-				Log.d(TAG, "native init end");
 				mIsNativeInitialized = true;
 			}
 		}
