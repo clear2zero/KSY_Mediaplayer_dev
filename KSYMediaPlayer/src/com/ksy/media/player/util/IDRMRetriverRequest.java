@@ -129,8 +129,9 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 			if (this.mUrlType == URL_TYPE_TO_APP_SERVER) {
 				if (this.mCekUrl == null || "".equals(this.mCekUrl))
 					return false;
-				if (Integer.valueOf(mCekVersion) < 0)
+				if (this.mCekVersion == null || "".equals(this.mCekVersion))
 					return false;
+				return true;
 			}
 			if (this.mKSCDRMHostPort == null || "".equals(this.mKSCDRMHostPort))
 				return false;
