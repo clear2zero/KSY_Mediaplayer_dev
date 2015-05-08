@@ -139,7 +139,6 @@ public class MediaPlayerView extends RelativeLayout {
 		if (null == context)
 			throw new NullPointerException("Context can not be null !");
 
-		
 		TypedArray typedArray = context.obtainStyledAttributes(attrs,
 				R.styleable.PlayerView);
 		int playmode = typedArray.getInt(R.styleable.PlayerView_playmode,
@@ -810,7 +809,7 @@ public class MediaPlayerView extends RelativeLayout {
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			public DRMKey retriveDRMKeyFromAppServer(DRMFullURL fullURL) {
+			public DRMKey retriveDRMKeyFromAppServer(String cekVersion, String cekUrl) {
 
 				return null;
 			}
@@ -818,9 +817,7 @@ public class MediaPlayerView extends RelativeLayout {
 			@Override
 			public DRMFullURL retriveDRMFullUrl(String cekVersion, String cekUrl) throws Exception {
 
-				DRMFullURL fullURL = new DRMFullURL("115.231.96.89:80", "test", DRMMethod.GetCek,
-						"16I/xKLT8S/aHJpApgYfye6CI6o=", "8oN7siZgTOSFHft0cXTg", "1710333224",
-						"4e1f2519c626cbfbab1520c255830c26", cekUrl, cekVersion, "UTF-8");
+				DRMFullURL fullURL = new DRMFullURL("2HITWMQXL2VBB3XMAEHQ", "ilZQ9p/NHAK1dOYA/dTKKeIqT/t67rO6V2PrXUNr", cekUrl, cekVersion);
 
 				return fullURL;
 
@@ -1147,6 +1144,7 @@ public class MediaPlayerView extends RelativeLayout {
 
 		@Override
 		public void onMovieCrop() {
+
 			if (!mScreenshotPreparing) {
 				mScreenshotPreparing = true;
 				bitmap = Bitmap.createBitmap(
@@ -1168,6 +1166,7 @@ public class MediaPlayerView extends RelativeLayout {
 
 		@Override
 		public void onVolumeDown() {
+
 			Log.d(Constants.LOG_TAG, "audio down");
 			if (mMediaPlayerController != null
 					&& mMediaPlayerController.isPlaying()) {
@@ -1187,6 +1186,7 @@ public class MediaPlayerView extends RelativeLayout {
 
 		@Override
 		public void onVolumeUp() {
+
 			Log.d(Constants.LOG_TAG, "audio up");
 			if (mMediaPlayerController != null
 					&& mMediaPlayerController.isPlaying()) {
