@@ -187,4 +187,8 @@ public interface IMediaPlayer {
 
 	public abstract void setTimeout(int timeout);
 
+	public abstract boolean setCachedDir(String cachedPath);
+
+	public abstract boolean clearCachedFiles(String cachedPath);
+
 }

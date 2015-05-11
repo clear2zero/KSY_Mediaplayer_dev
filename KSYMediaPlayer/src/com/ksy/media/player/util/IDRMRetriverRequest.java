@@ -7,7 +7,6 @@ import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.cert.X509Certificate;
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManager;
@@ -111,7 +110,7 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 			this.mAccessKey = accessKey;
 			this.mCekUrl = cekUrl;
 			this.mCekVersion = version;
-			this.mExpire = String.valueOf(new Date().getTime() / 1000 + 3600);
+			this.mExpire = String.valueOf(System.currentTimeMillis() / 1000 + 3600);
 			this.mNonce = this.mExpire;
 
 			try {

@@ -265,6 +265,13 @@ public class MediaPlayerVideoView extends SurfaceView implements IMediaPlayerCon
 				ksyMediaPlayer.setBufferSize(IMediaPlayer.MEDIA_BUFFERSIZE_DEFAULT);
 				ksyMediaPlayer.setAnalyseDuration(IMediaPlayer.MEDIA_ANALYSE_DURATION_DEFAULT);
 				ksyMediaPlayer.setTimeout(IMediaPlayer.MEDIA_TIME_OUT_DEFAULT);
+				// 设置缓存礼金
+				// ksyMediaPlayer.clearCachedFiles(new
+				// File(Environment.getExternalStorageDirectory(),
+				// "ksy_cached_temp").getPath());
+				// ksyMediaPlayer.setCachedDir(new
+				// File(Environment.getExternalStorageDirectory(),
+				// "ksy_cached_temp").getPath());
 				if (mUserAgent != null) {
 					ksyMediaPlayer.setAvFormatOption("user_agent", mUserAgent);
 				}
