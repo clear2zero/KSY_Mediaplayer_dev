@@ -25,7 +25,7 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 	private static final long serialVersionUID = 1L;
 	public static final String REQUEST_METHOD_TAG = "https";
 	public static final String SIGNATURE_KEY_TAG = "signature";
-	public static final String ACCESS_KEY_ID_KEY_TAG = "accesskeyid";
+	public static final String ACCESS_KEY_ID_KEY_TAG = "accesskey";
 	public static final String EXPIRE_KEY_TAG = "expire";
 	public static final String NONCE_KEY_TAG = "nonce";
 	public static final String CEK_URL_KEY_TAG = "resource";
@@ -66,7 +66,7 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 	private DRMRetrieverResponseHandler mResponseHandler;
 
 	public enum DRMMethod {
-		NewCek("NewCek"), GetCek("GetCek"), DelCek("DelCek");
+		GetCek("GetCek");
 
 		private DRMMethod(String method) {
 

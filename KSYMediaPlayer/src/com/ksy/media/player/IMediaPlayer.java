@@ -191,4 +191,6 @@ public interface IMediaPlayer {
 
 	public abstract boolean clearCachedFiles(String cachedPath);
 
+	public abstract void setLowDelayEnabled(boolean ennable);
+
 }

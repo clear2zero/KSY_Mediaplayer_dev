@@ -727,6 +727,8 @@ public class MediaPlayerView extends RelativeLayout {
 			mVideoReady = true;
 			if (mPlayerViewCallback != null)
 				mPlayerViewCallback.onPrepared();
+
+			mMediaPlayerController.start();
 		}
 	};
 

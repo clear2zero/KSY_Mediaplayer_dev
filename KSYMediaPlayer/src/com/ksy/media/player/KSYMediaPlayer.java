@@ -1108,6 +1108,12 @@ public final class KSYMediaPlayer extends BaseMediaPlayer {
 		return true;
 	}
 
+	@Override
+	public void setLowDelayEnabled(boolean ennable) {
+
+		_setLowDelayEnabled(ennable);
+	}
+
 	private native void _setAudioAmplify(float ratio);
 
 	private native void _setVideoRate(float rate);
@@ -1123,6 +1129,8 @@ public final class KSYMediaPlayer extends BaseMediaPlayer {
 	private native void _setTimeout(int timeout);
 
 	private native void _setCachedDir(String cachedPath);
+
+	private native void _setLowDelayEnabled(boolean enabled);
 
 	@Override
 	public void setLogEnabled(boolean enable) {
