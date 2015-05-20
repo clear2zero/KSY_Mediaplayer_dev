@@ -3,6 +3,7 @@ package com.ksy.media.player.util;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.security.SecureRandom;
 import java.security.SignatureException;
 import java.security.cert.X509Certificate;
@@ -35,6 +36,7 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 
 	public static final String KSC_DRM_HOST_PORT = "115.231.96.89:80";
 	public static final String KSC_DRM_REQUEST_METHOD = "GetCek";
+	public static final String ENCODING = "UTF-8";
 
 	public Calendar calendar = Calendar.getInstance();
 
@@ -136,8 +138,8 @@ public abstract class IDRMRetriverRequest implements Runnable, Serializable {
 			StringBuffer stringBuffer = new StringBuffer(REQUEST_METHOD_TAG);
 			stringBuffer.append("://").append(mKSCDRMHostPort).append("/");
 			stringBuffer.append(mCustomerName).append("/").append(mDRMMethod).append("?");
-			stringBuffer.append(SIGNATURE_KEY_TAG).append("=").append(mSignature).append("&");
-			stringBuffer.append(ACCESS_KEY_ID_KEY_TAG).append("=").append(mAccessKey).append("&");
+			stringBuffer.append(SIGNATURE_KEY_TAG).append("=").append(URLEncoder.encode(mSignature, ENCODING)).append("&");
+			stringBuffer.append(ACCESS_KEY_ID_KEY_TAG).append("=").append(URLEncoder.encode(mAccessKey, ENCODING)).append("&");
 			stringBuffer.append(EXPIRE_KEY_TAG).append("=").append(mExpire).append("&");
 			stringBuffer.append(NONCE_KEY_TAG).append("=").append(mNonce).append("&");
 			stringBuffer.append(CEK_URL_KEY_TAG).append("=").append(mCekUrl).append("&");

@@ -18,7 +18,8 @@ public class CameraMainActivity extends FragmentActivity {
 			// "rtmp://192.168.135.185/myLive/guoli1234",
 			// "rtmp://192.168.135.185/myLive/drm1",
 			// "rtmp://192.168.135.185/myLive/drm",
-			"rtmp://192.168.135.185/myLive/drm3",
+			// "rtmp://192.168.135.185/myLive/drm3",
+			// "rtmp://101.71.27.121/live/drm"
 			// "rtsp://10.0.2.11:8086",
 			// "http://192.168.43.42:8080",
 			// "http://live.3gv.ifeng.com/zixun.m3u8",
@@ -31,7 +32,7 @@ public class CameraMainActivity extends FragmentActivity {
 			// "test.flv").getPath(),
 			// "rtmp://192.168.135.185:1935/myLive/tangluo"
 
-	};
+			};
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -42,8 +43,7 @@ public class CameraMainActivity extends FragmentActivity {
 
 		String auth;
 		try {
-			auth =
-					AuthUtils.calAuthorizationForDRM("ilZQ9p/NHAK1dOYA/dTKKeIqT/t67rO6V2PrXUNr", "1431093746", "1431093746");
+			auth = AuthUtils.calAuthorizationForDRM("ilZQ9p/NHAK1dOYA/dTKKeIqT/t67rO6V2PrXUNr", "1431093746", "1431093746");
 			Log.e("guoli", "auth :" + auth);
 		} catch (SignatureException e) {
 			// TODO Auto-generated catch block
